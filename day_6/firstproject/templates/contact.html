@@ -1,0 +1,18 @@
+{% extends 'basic.html' %}
+{% block body %}
+
+<h1 class = "container" >Contact please </h1>
+<div class = "container">
+
+    <form method = "post">
+    {% csrf_token %}
+       {{form}}
+    
+        
+        <button type="SUbmit">Submit</button>
+
+      </form>
+
+</div>
+
+{% endblock body %}
