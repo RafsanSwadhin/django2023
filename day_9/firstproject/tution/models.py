@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 from PIL import Image
 from django.utils.text import slugify
+from multiselectfield import MultiSelectField
 
 # Create your models here.
 class Contact(models.Model):
@@ -18,6 +19,11 @@ class Post(models.Model):
         ('Student','Student'),
 
     )
+    MEDIUM =(
+        ('bangla','bangla'),
+        ('english','english'),
+        ('arabic','arabic')
+    )
 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=101)
@@ -29,6 +35,7 @@ class Post(models.Model):
     category = models.CharField(max_length=100, choices = CATEGORY)
     created_at = models.DateTimeField(default=now)
     image = models.ImageField(default='default.jpg', upload_to='tution/image')
+    medium = MultiSelectField(max_length=100,  choices=MEDIUM, default='bangla')
 
     def save(self,*args, **kwargs):
         self.slug = slugify(self.title)

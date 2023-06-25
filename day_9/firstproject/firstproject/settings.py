@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tution',
     'crispy_forms',
     'crispy_bootstrap4',
+    'multiselectfield',
     
 ]
 
